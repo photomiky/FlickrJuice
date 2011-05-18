@@ -1,0 +1,39 @@
+TFlickrJuice2
+v7
+r1
+
+N/Users/michaelrabin/DEV/FlickrJuice2/../three20/src/Three20.bundle
+c000000004CE905E700000000000001DC
+t1290339815
+s476
+
+N/Users/michaelrabin/DEV/FlickrJuice2/build/Debug/FlickrJuice2.app
+t2
+s0
+
+N/Users/michaelrabin/DEV/FlickrJuice2/build/Debug/FlickrJuice2.app/Contents/Info.plist
+t2
+s0
+
+N/Users/michaelrabin/DEV/FlickrJuice2/build/Debug/FlickrJuice2.app/Contents/PkgInfo
+t2
+s0
+
+N/Users/michaelrabin/DEV/FlickrJuice2/build/Debug/FlickrJuice2.app/Contents/Resources/Three20.bundle
+t2
+s0
+
+NFlickrJuice2-Info.plist
+c000000004D9A51130000000000000356
+t1301958931
+s854
+
+CCpResource build/Debug/FlickrJuice2.app/Contents/Resources/Three20.bundle ../three20/src/Three20.bundle
+r0
+
+CProcessInfoPlistFile /Users/michaelrabin/DEV/FlickrJuice2/build/Debug/FlickrJuice2.app/Contents/Info.plist FlickrJuice2-Info.plist
+r0
+
+CTouch /Users/michaelrabin/DEV/FlickrJuice2/build/Debug/FlickrJuice2.app
+r0
+
