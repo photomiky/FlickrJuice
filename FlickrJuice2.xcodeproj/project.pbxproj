@@ -90,6 +90,7 @@
 		428C4148134B32CC0082DEBD /* NSOperationTestViewController_Priv.m in Sources */ = {isa = PBXBuildFile; fileRef = 428C413F134B32CC0082DEBD /* NSOperationTestViewController_Priv.m */; };
 		428C4149134B32CC0082DEBD /* NSOperationTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428C4141134B32CC0082DEBD /* NSOperationTestViewController.m */; };
 		429586A01382A7A30069247A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4295869F1382A7A30069247A /* Default@2x.png */; };
+		4298B97A1383D62300FCBE42 /* FJTTPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4298B9791383D62300FCBE42 /* FJTTPhotoViewController.m */; };
 		429F5B6B135D732900DC765A /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 429F5B6A135D732900DC765A /* appIcon.png */; };
 		429F5B81135D7D1200DC765A /* buddyicon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 429F5B80135D7D1200DC765A /* buddyicon.jpg */; };
 		42A1BEB6135EC44A00BC8936 /* UploadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A1BEB5135EC44A00BC8936 /* UploadImage.m */; };
@@ -478,6 +479,8 @@
 		428C4140134B32CC0082DEBD /* NSOperationTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationTestViewController.h; sourceTree = "<group>"; };
 		428C4141134B32CC0082DEBD /* NSOperationTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationTestViewController.m; sourceTree = "<group>"; };
 		4295869F1382A7A30069247A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		4298B9781383D62200FCBE42 /* FJTTPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJTTPhotoViewController.h; sourceTree = "<group>"; };
+		4298B9791383D62300FCBE42 /* FJTTPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJTTPhotoViewController.m; sourceTree = "<group>"; };
 		429F5B6A135D732900DC765A /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		429F5B80135D7D1200DC765A /* buddyicon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = buddyicon.jpg; sourceTree = "<group>"; };
 		42A1BEB4135EC44A00BC8936 /* UploadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadImage.h; sourceTree = "<group>"; };
@@ -736,6 +739,8 @@
 				42214CB8134A896100B0FE8F /* MailboxViewController.m */,
 				42B24C4D134B568A0028EAE7 /* ContactsViewController.h */,
 				42B24C4E134B568A0028EAE7 /* ContactsViewController.m */,
+				4298B9781383D62200FCBE42 /* FJTTPhotoViewController.h */,
+				4298B9791383D62300FCBE42 /* FJTTPhotoViewController.m */,
 			);
 			name = viewControllers;
 			sourceTree = "<group>";
@@ -1498,6 +1503,7 @@
 				42A4B5D11382EB1A00627240 /* UserPhotosThumbsViewController.m in Sources */,
 				42A4B5DA1382F1BC00627240 /* MockDatasource.m in Sources */,
 				42A4B5DD1382F45300627240 /* MockModel.m in Sources */,
+				4298B97A1383D62300FCBE42 /* FJTTPhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
