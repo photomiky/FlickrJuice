@@ -19,8 +19,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		//self.title=@"Settings";
-		UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
-		self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:image] autorelease]; 
+//		UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
+//		self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:image] autorelease]; 
 		
     }
     return self;

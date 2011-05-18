@@ -22,8 +22,8 @@
 		
 		//self.title = @"Interesting";
 		isInteresting = YES;
-		UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
-		[image drawInRect:CGRectMake(0,0, image.size.width, image.size.height)];
+//		UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
+//		[image drawInRect:CGRectMake(0,0, image.size.width, image.size.height)];
 
 	}
 	return self;

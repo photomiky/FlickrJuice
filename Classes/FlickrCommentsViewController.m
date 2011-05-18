@@ -39,8 +39,8 @@ extern NSString* const  TOKEN;
 	
 	[super viewDidLoad];
 	
-	UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
-	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:image] autorelease]; 
+//	UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
+//	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:image] autorelease]; 
 	
 	// sign up for login notification
 	

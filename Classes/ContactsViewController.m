@@ -15,8 +15,8 @@
 -(void) viewDidLoad{
 	
 		
-	UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
-	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:image] autorelease]; 
+//	UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
+//	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:image] autorelease]; 
 	
 	// add search bar 
 	TTTableViewController* searchController = [[[TTTableViewController alloc] init] autorelease];

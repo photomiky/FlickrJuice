@@ -53,8 +53,8 @@ const int OVERLAY_TAG=99;
 
 -(void) loadView{
 	[super loadView];
-	UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
-	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:image] autorelease]; 
+//	UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
+//	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:image] autorelease]; 
 	self.wantsFullScreenLayout = NO; 
 	
 	UIButton *fav = [UIButton buttonWithType:UIButtonTypeCustom];

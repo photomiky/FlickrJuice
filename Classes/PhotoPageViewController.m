@@ -73,7 +73,7 @@ static NSString *PHOTO_URL_PREFIX = @"http://farm%@.static.flickr.com/%@/%@_%@_%
  */
 	[super loadView];
 
-
+    
 
 	UIButton *comment = [UIButton buttonWithType:UIButtonTypeCustom];
 	comment.bounds = CGRectMake(0, 0, 24, 22);
@@ -164,8 +164,15 @@ static NSString *PHOTO_URL_PREFIX = @"http://farm%@.static.flickr.com/%@/%@_%@_%
 	[btn setImage:favImage forState:UIControlStateNormal];
 }
 
+- (void)updateView{
+    [super updateView];
+    self.title = @"";
+    
+}
+
 - (void)viewWillAppear:(BOOL)animated{
 	
+    
 	AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 	FlickrPhoto *flickrPhoto = (FlickrPhoto *)self.centerPhoto;
 	BOOL isFaved = NO;

@@ -28,8 +28,8 @@
 -(void) viewDidLoad{
 
 	[super viewDidLoad];
-	UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
-	[image drawInRect:CGRectMake(0,0, 320, image.size.height)];
+//	UIImage *image = [UIImage imageNamed: @"nav_bar_bg.png"]; 
+//	[image drawInRect:CGRectMake(0,0, 320, image.size.height)];
 	
 	
 }

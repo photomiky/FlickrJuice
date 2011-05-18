@@ -23,6 +23,7 @@
 #import "FavoritePhotosViewController.h"
 #import "ContactsViewController.h"
 #import "UserPhotosThumbsViewController.h"
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -42,7 +43,8 @@ NSString* const kFBToken = @"fbtoken";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
 {
-	
+	// Three20 config 
+    [[TTURLRequestQueue mainQueue] setMaxContentLength:0];
 	
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *token = [defaults objectForKey:TOKEN];
