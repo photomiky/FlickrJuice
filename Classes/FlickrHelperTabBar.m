@@ -103,12 +103,12 @@
 	
 }
 
-//- (BOOL)shouldAutorotateToInterfaceOrientation:
-//(UIInterfaceOrientation) interfaceOrientation
-//{
-//    return  [self.selectedViewController
-//			 shouldAutorotateToInterfaceOrientation:interfaceOrientation];
-//}
+- (BOOL)shouldAutorotateToInterfaceOrientation:
+(UIInterfaceOrientation) interfaceOrientation
+{
+    return  [self.selectedViewController
+			 shouldAutorotateToInterfaceOrientation:interfaceOrientation];
+}
 
 @end
 

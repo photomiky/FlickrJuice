@@ -17,7 +17,7 @@ extern NSString * const TOKEN;
 
 @protocol LoginViewControllerDelegate;
 
-@interface LoginViewController : UIViewController <UIWebViewDelegate, NSXMLParserDelegate, IconDownloaderDelegate>{
+@interface LoginViewController : UIViewController <UIWebViewDelegate, NSXMLParserDelegate, IconDownloaderDelegate, UIActionSheetDelegate>{
 	
     UIImageView *_animationView2;
     UIImageView *_animationView1;
@@ -53,17 +53,22 @@ extern NSString * const TOKEN;
 @property (nonatomic, assign) id<LoginViewControllerDelegate> delegate;
 
 + (NSString *) md5:(NSString *)str;
+-(BOOL) isLoggedIn;
 -(void) getTokenFromFrob;
 -(void) setItemElementInProgress:(BOOL) value;
 -(void) storeToken;
 - (void)loginClick:(id)sender;
+
+- (void)logoutClick:(id)sender;
+- (void)logout;
+
 - (void)invalidateViewControllerAtUrl:(NSString *)url fromMap:(TTURLMap *)map;
 
 -(void) fadeIn;
 -(void) startImagesDownload;
 -(void) fadeOut:(NSString *) animationId finished:(NSNumber *) finished context:(void *) context;
 -(void) display:(NSString *) animationId finished:(NSNumber *) finished context:(void *) context;
--(CGRect) calculateFrameFromImage:(UIImage *) image isBig:(BOOL) isBig;
+-(CGRect) calculateFrameFromImage:(UIImage *) image;
 @end
 
 @protocol LoginViewControllerDelegate

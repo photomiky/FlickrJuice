@@ -71,7 +71,7 @@ NSString* const kFBToken = @"fbtoken";
 	[map from:@"ff://tabBar" toViewController:[FlickrHelperTabBar class]];
 	[map from:@"ff://photopage/(initWithImageId:)/(andSecret:)/(andFarm:)/(andServer:)/(andOwner:)/(andImageName:)" toViewController:[PhotoPageViewController class]];
 	[map from:@"ff://mailbox" toViewController:[MailboxViewController class]];
-	[map from:@"ff://logout" toViewController:[LogoutViewController class]];
+	[map from:@"ff://logout" toViewController:[LoginViewController class]];
 	[map from:@"ff://commentsView/(initWithPhotoId:)" toViewController:[CommentsViewController class]];
 	[map from:@"ff://addCommentView/(initWithPhotoId:)" toViewController:[AddCommentViewController class]];
 	[map from:@"ff://contactsView" toViewController:[ContactsViewController class]];

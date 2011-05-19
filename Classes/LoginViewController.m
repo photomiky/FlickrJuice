@@ -35,6 +35,8 @@ extern const NSString* FLICKR_API;
 @synthesize delegate;
 @synthesize animationView1=_animationView1, animationView2=_animationView2;
 
+
+
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,7 +46,7 @@ extern const NSString* FLICKR_API;
         _allImageDownloads = [[NSMutableDictionary alloc] init];
         _slideShowImages = [[NSMutableSet alloc] initWithCapacity:kSlideShowImageCount];
         isAnimating = NO;
-
+     
     }
     
     return self;
@@ -107,6 +109,13 @@ extern const NSString* FLICKR_API;
             isAnimating = YES;
             [self fadeIn];
             NSLog(@"starting animation");
+            // add button 
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button setImage:[UIImage imageNamed:@"loginButton.png"] forState:UIControlStateNormal];
+            button.frame = CGRectMake(0, 339, 300, 44);//CGRectMake(0, 0, 320, 380);
+            [button addTarget:self action:@selector(loginClick:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:button];
+            
         }
     }
 }
@@ -130,9 +139,9 @@ extern const NSString* FLICKR_API;
     
     NSLog(@"View did load");
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *token = [defaults objectForKey:TOKEN];
+	//NSString *token = [defaults objectForKey:TOKEN];
 	
-	if(!token){
+	//if(!token){
         
         UIImage *splashImage = [UIImage imageNamed:@"Default.png"];
         
@@ -142,14 +151,9 @@ extern const NSString* FLICKR_API;
         [self.view addSubview:self.animationView2];
         [self.view addSubview:self.animationView1];
         
-        
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(0, 0, 320, 380);
-        [button addTarget:self action:@selector(loginClick:) forControlEvents:UIControlEventTouchUpInside];
-		[self.view addSubview:button];
                
         [self startImagesDownload];
-	}	
+//	}	
 	
 }
 
@@ -172,7 +176,7 @@ extern const NSString* FLICKR_API;
     UIImage *currImage = [_slideShowImages anyObject];
     self.animationView2.image = currImage;
     [_slideShowImages removeObject:currImage];
-    [self.animationView2 setFrame:[self calculateFrameFromImage:currImage isBig:NO]];
+    [self.animationView2 setFrame:[self calculateFrameFromImage:currImage]];
     [self.animationView2 setAlpha:0.0f];    
     [UIView beginAnimations:@"fadeIn" context:nil];
     [UIView setAnimationBeginsFromCurrentState:YES];
@@ -186,27 +190,27 @@ extern const NSString* FLICKR_API;
     [UIView setAnimationDidStopSelector:@selector(display:finished:context:)];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
     [self.animationView1 setAlpha:0.0f];
-    [self.animationView2 setFrame:[self calculateFrameFromImage:self.animationView2.image isBig:YES]];
+    //[self.animationView2 setFrame:[self calculateFrameFromImage:self.animationView2.image isBig:YES]];
     [self.animationView2 setAlpha:1.0f];
     [UIView commitAnimations];
     
     
 }
 
--(CGRect) calculateFrameFromImage:(UIImage *) image isBig:(BOOL) isBig{
-    int width, height;
-    if(isBig){
-        width = 640;
-        height = 960;
-    }else{
-        width = 320;
-        height = 480;
+-(CGRect) calculateFrameFromImage:(UIImage *) image{
+    
+    int screenWidth = 320;
+    int screenHeight = 480;
+    
+    if(image.size.width < screenWidth || image.size.height < screenHeight){
+        return CGRectMake(0, 0, 320, 480); // fill screen
     }
-//    CGRect result = CGRectMake((width - image.size.width)/2, (height - image.size.height)/2, image.size.width, image.size.height);
-//    CGRect result1 = CGRectMake(0, 0, image.size.width, image.size.height);
-    CGRect result2 = CGRectMake(0, 0, 320, 480);
-    //NSLog(@"calculated frame (%f, %f, %f, %f)", result.origin.x, result.origin.y, result.size.width, result.size.height);
-    return result2;    
+    int imageWidth = image.size.width;
+    int imageHeight = image.size.height;
+    int x = (screenWidth - imageWidth) / 2;
+    int y = (screenHeight - imageHeight) / 2;
+    
+    return CGRectMake(x, y, imageWidth, imageHeight);    
 }
 
 -(void) display:(NSString *) animationId finished:(NSNumber *) finished context:(void *) context{
@@ -217,8 +221,8 @@ extern const NSString* FLICKR_API;
     UIImage *image = [_slideShowImages anyObject];
     self.animationView1.image = image;
     [_slideShowImages removeObject:image];
-    [self.animationView1 setAlpha:0.0f];
-    [self.animationView1 setFrame:[self calculateFrameFromImage:image isBig:NO]];
+   // [self.animationView1 setAlpha:0.0f];
+    [self.animationView1 setFrame:[self calculateFrameFromImage:image]];
     
 
 
@@ -231,9 +235,9 @@ extern const NSString* FLICKR_API;
     
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
     [self.animationView2 setAlpha:0.0f];
-    [self.animationView2 setFrame:[self calculateFrameFromImage:self.animationView1.image isBig:NO]];
+    //[self.animationView2 setFrame:[self calculateFrameFromImage:self.animationView1.image isBig:NO]];
     [self.animationView1 setAlpha:1.0f];
-    [self.animationView1 setFrame:[self calculateFrameFromImage:self.animationView2.image isBig:YES]];
+   // [self.animationView1 setFrame:[self calculateFrameFromImage:self.animationView2.image isBig:YES]];
     [UIView commitAnimations];
     
     
@@ -255,7 +259,7 @@ extern const NSString* FLICKR_API;
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return YES;
+	return NO;
 } 
 
 
@@ -265,8 +269,8 @@ extern const NSString* FLICKR_API;
 	self.webView = nil;
 	self.loginButton = nil;
 	self.activityInd = nil;
-    self.animationView1 = nil;
-    self.animationView2 = nil;
+    //self.animationView1 = nil;
+    //self.animationView2 = nil;
     //_slideShowImages = nil;
     //_allImageDownloads = nil;
 }
@@ -283,9 +287,71 @@ extern const NSString* FLICKR_API;
     [super dealloc];
 }
 
+//////////////////////////////////////////////////////////////////////
+/// logout methods
+
+-(BOOL) isLoggedIn{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"IS LOGGED IN RETURNED %d", ([defaults objectForKey:TOKEN] == nil));
+    return ([defaults objectForKey:TOKEN] != nil);
+    
+}
+
+- (void)logoutClick:(id)sender{
+	
+	NSLog(@"request logout");
+	UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"Are you sure you want to logout ?" 
+														delegate:self 
+											   cancelButtonTitle:@"Cancel" 
+										  destructiveButtonTitle:@"Yes. Log me out"
+											   otherButtonTitles:nil];
+	
+	[action showInView:self.tabBarController.view];
+	[action release];
+    
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if (buttonIndex == 0) {
+		[self logout];
+	} 
+}
+
+- (void) logout {
+	
+	NSLog(@"Log out user");
+	// invalidate stuff
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	// remove from defaults
+	
+	
+	
+	[defaults removeObjectForKey:TOKEN];
+	[defaults removeObjectForKey:@"username"];
+	[defaults removeObjectForKey:@"user"];
+	[defaults synchronize];
+	
+	
+	NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *each in [[cookieStorage.cookies copy] autorelease]) {
+        [cookieStorage deleteCookie:each];
+    }
+	
+	TTNavigator* navigator = [TTNavigator navigator];
+	[navigator openURLAction:[TTURLAction actionWithURLPath:@"ff://login"]];
+	
+}
+
 
 - (void)loginClick:(id)sender {
 	
+    if([self isLoggedIn]){
+        [self logoutClick:sender];
+        return;
+    }
     // stop downloading of images in background
     _allImageDownloads = nil;
     
